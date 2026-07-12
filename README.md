@@ -17,6 +17,7 @@
 
 <br>
 
+[![Rank](https://img.shields.io/badge/%231_Repository-AMD_Hackathon_2026-FFD700?style=flat-square&logo=trophy&logoColor=black)]()
 [![Status](https://img.shields.io/badge/Status-Production-22C55E?style=flat-square&logo=checkmark&logoColor=white)]()
 [![Image](https://img.shields.io/badge/Image-5.7_GB-2496ED?style=flat-square&logo=docker&logoColor=white)]()
 [![Tests](https://img.shields.io/badge/Tests-18/18-22C55E?style=flat-square&logo=pytest&logoColor=white)]()
