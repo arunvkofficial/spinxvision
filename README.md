@@ -44,6 +44,8 @@ SpinxVision is a containerised video captioning agent built for **AMD Instinct a
 ### One Command
 
 ```bash
+docker pull arunvkofficial/spinxvision:latest
+
 docker run --rm \
   --device=/dev/kfd --device=/dev/dri \
   -v $(pwd)/input:/input \
@@ -179,9 +181,9 @@ Accessible, light, relatable
                         └────────────┬────────────┘
                                      │
                                      ▼
-               ╔══════════════════════════════════════╗
-               ║        1. VIDEO INGESTION            ║
-║  FFmpeg · 2× retry · 3s delay         ║
+╔══════════════════════════════════════╗
+                ║        1. VIDEO INGESTION            ║
+                ║  FFmpeg · 2× retry · 3s delay         ║
                ╚══════════════════════╤═══════════════╝
                                      │
                                      ▼
