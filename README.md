@@ -77,6 +77,23 @@ SpinxVision is a **production-grade containerised video captioning agent** purpo
 
 ### One Command
 
+**Step 1:** Create `input/tasks.json` with your video URLs:
+
+```bash
+mkdir -p input output
+cat > input/tasks.json << 'EOF'
+[
+  {
+    "task_id": "clip1",
+    "video_url": "https://...your-video.mp4",
+    "styles": ["formal", "sarcastic", "humorous_tech", "humorous_non_tech"]
+  }
+]
+EOF
+```
+
+**Step 2:** Pull and run:
+
 ```bash
 docker pull arunvkofficial/spinxvision:latest
 
@@ -156,7 +173,7 @@ docker run --rm \
 </tr>
 </table>
 
-> **Note:** `styles` is optional — defaults to all 4 styles if omitted.
+> **Note:** `styles` is optional. If omitted, all 4 styles are generated. `task_id` can be any unique string.
 
 <br>
 
