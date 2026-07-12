@@ -17,13 +17,16 @@
 
 <br>
 
-[![Rank](https://img.shields.io/badge/%231_Repository-AMD_Hackathon_2026-FFD700?style=flat-square&logo=trophy&logoColor=black)]()
-[![Status](https://img.shields.io/badge/Status-Production-22C55E?style=flat-square&logo=checkmark&logoColor=white)]()
-[![Image](https://img.shields.io/badge/Image-5.7_GB-2496ED?style=flat-square&logo=docker&logoColor=white)]()
-[![Tests](https://img.shields.io/badge/Tests-18/18-22C55E?style=flat-square&logo=pytest&logoColor=white)]()
-[![Runtime](https://img.shields.io/badge/Runtime-%3C10_min-F59E0B?style=flat-square&logo=clockify&logoColor=white)]()
-[![Platform](https://img.shields.io/badge/Platform-linux/amd64-8B5CF6?style=flat-square&logo=linux&logoColor=white)]()
-[![GPU](https://img.shields.io/badge/Acceleration-ROCm_6.4-ED1C24?style=flat-square&logo=amd&logoColor=white)]()
+[![Rank](https://img.shields.io/badge/%F0%9F%8F%86_%231_Repository-AMD_Hackathon_2026-FFD700?style=for-the-badge&logo=trophy&logoColor=black)]()
+[![Status](https://img.shields.io/badge/Status-Production_Ready-22C55E?style=for-the-badge&logo=githubactions&logoColor=white)]()
+[![Model](https://img.shields.io/badge/Model-Gemma_4_12B-4285F4?style=for-the-badge&logo=google&logoColor=white)]()
+[![ROCm](https://img.shields.io/badge/GPU-ROCm_6.4-ED1C24?style=for-the-badge&logo=amd&logoColor=white)]()
+[![Image](https://img.shields.io/badge/Image-5.7_GB-2496ED?style=for-the-badge&logo=docker&logoColor=white)]()
+[![Tests](https://img.shields.io/badge/Tests-18/18_Passing-22C55E?style=for-the-badge&logo=pytest&logoColor=white)]()
+[![Runtime](https://img.shields.io/badge/Runtime-%3C_10_min-F59E0B?style=for-the-badge&logo=clockify&logoColor=white)]()
+[![Zero Config](https://img.shields.io/badge/Zero_Config-Pull_%26_Run-8B5CF6?style=for-the-badge&logo=container&logoColor=white)]()
+[![Platform](https://img.shields.io/badge/linux-amd64-181717?style=for-the-badge&logo=linux&logoColor=white)]()
+[![License](https://img.shields.io/badge/License-MIT-8B5CF6?style=for-the-badge&logo=opensourceinitiative&logoColor=white)]()
 
 </div>
 
@@ -34,6 +37,25 @@
 ## 📋 Overview
 
 SpinxVision is a **production-grade containerised video captioning agent** purpose-built for **AMD Instinct accelerators**. It downloads video clips, performs intelligent scene detection and key-frame extraction, and generates captions in **four distinct tones** using **Google's Gemma 4 12B** vision-language model — accelerated via **ROCm 6.4** with automatic CPU fallback.
+
+### 🔥 Key Highlights
+
+<table>
+<tr>
+<td align="center">⚡ <b>Zero Config</b><br><sub>Pull & run — token baked in</sub></td>
+<td align="center">🎯 <b>4 Styles</b><br><sub>formal · sarcastic · tech · witty</sub></td>
+<td align="center">🏎️ <b>~8 min</b><br><sub>12 clips on AMD GPU</sub></td>
+<td align="center">📦 <b>5.7 GB</b><br><sub>Under 10 GB limit</sub></td>
+</tr>
+<tr>
+<td align="center">🛡️ <b>Auto Fallback</b><br><sub>GPU→CPU seamless</sub></td>
+<td align="center">🔄 <b>2× Retry</b><br><sub>Network resilience</sub></td>
+<td align="center">🧠 <b>Gemma 4 12B</b><br><sub>State-of-the-art VLM</sub></td>
+<td align="center">✅ <b>18/18 Tests</b><br><sub>All passing</sub></td>
+</tr>
+</table>
+
+<br>
 
 | Capability | Detail |
 |---|---|
