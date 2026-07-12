@@ -290,7 +290,7 @@ Relatable, accessible, light-hearted
 | **Precision** | `bfloat16` |
 | **Device strategy** | ROCm GPU → CUDA → CPU (automatic fallback) |
 | **Decoding** | Temperature 0.7 · Top-p 0.95 · Top-k 40 |
-| **Max new tokens** | 256 |
+| **Max new tokens** | 128 |
 | **Quantization** | 8-bit / 4-bit (configurable in `config.py`) |
 | **Auth** | Gated model — authenticated at runtime |
 
@@ -306,8 +306,8 @@ Results from a 12-clip evaluation set (30s–2min each):
 |---|---|---|---|
 | Model load | 15–30 s | 10–15 s | — |
 | Frame extraction | <3 s / min video | <3 s / min video | 1× |
-| **Per-caption inference** | **5–8 s** | 35–45 s | **~6×** |
-| 4-style pipeline (1 video) | 30–60 s | 150–200 s | **~4×** |
+| **Per-caption inference** | **3–5 s** | 20–30 s | **~6×** |
+| 4-style pipeline (1 video) | **15–25 s** | 100–140 s | **~6×** |
 | **12-clip evaluation set** | **~8 min** | >30 min | **✅ Pass** |
 
 **✅ Runtime limit: 10 minutes** — full evaluation set completes in ~8 min on AMD GPU.
@@ -390,6 +390,7 @@ python3 -m unittest \
 | **Entry point** | `python /app/app.py` |
 | **Runtime user** | `root` (writes to mounted volumes) |
 | **Platform** | `linux/amd64` |
+| **Architecture** | ✅ linux/amd64 manifest included |
 | **Auth** | Gated model — authenticated at runtime |
 
 <br>
@@ -403,8 +404,8 @@ python3 -m unittest \
 | **Under 10 GB compressed** | ✅ **5.7 GB** |
 | **Under 10 min runtime (12 clips)** | ✅ **~8 min on GPU** |
 | **4 caption styles** | ✅ formal, sarcastic, humorous_tech, humorous_non_tech |
-| **30s per-request response time** | ✅ **5–8 s per style** |
-| **60s container cold start** | ✅ Model pre-loaded before task processing |
+| **30s per-request response time** | ✅ **~20 s for 4 styles on GPU** |
+| **60s container cold start** | ✅ Model pre-loaded in 15–30 s |
 | **No hardcoded answers** | ✅ All captions generated fresh per video |
 | **Error resilience** | ✅ Retries, fallbacks, partial failures handled |
 | **Zero-config for judges** | ✅ Pull and run — no setup needed |

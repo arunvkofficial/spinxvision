@@ -21,7 +21,7 @@ class CaptionGenerator:
 
         images = [Image.fromarray(f) for f in frames]
         scene_group = self._create_scene_group(images)
-        num_images = min(len(scene_group), 5)
+        num_images = min(len(scene_group), 3)
         selected_images = scene_group[:num_images]
 
         prompts = [build_vision_prompt(style, num_images) for style in styles]

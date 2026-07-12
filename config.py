@@ -26,7 +26,7 @@ class ModelConfig:
     model_id: str = "google/gemma-4-12B-it"
     torch_dtype: str = "bfloat16"
     device_map: str = "auto"
-    max_new_tokens: int = 256
+    max_new_tokens: int = 128
     temperature: float = 0.7
     top_p: float = 0.95
     top_k: int = 40
