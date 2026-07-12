@@ -1,0 +1,13 @@
+.git
+.gitignore
+.dockerignore
+.env
+__pycache__
+*.py[cod]
+temp/
+input/
+output/
+tests/
+Dockerfile
+Dockerfile.cpu
+README.md
