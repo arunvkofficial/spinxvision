@@ -48,7 +48,6 @@ docker run --rm \
   --device=/dev/kfd --device=/dev/dri \
   -v $(pwd)/input:/input \
   -v $(pwd)/output:/output \
-  -e HF_TOKEN=$HF_TOKEN \
   arunvkofficial/spinxvision:latest
 ```
 
@@ -63,7 +62,7 @@ docker run --rm \
 |-------------|---|
 | AMD GPU with ROCm | `--device=/dev/kfd --device=/dev/dri` |
 | Docker | Image: **5.7 GB** compressed |
-| HuggingFace token | Pass via `-e HF_TOKEN=...` (gated model) |
+| HuggingFace token | Pre-configured in image |
 | Input file | `/input/tasks.json` (see below) |
 | Platform | `linux/amd64` |
 
