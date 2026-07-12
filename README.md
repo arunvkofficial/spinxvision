@@ -42,7 +42,7 @@ SpinxVision is a **production-grade containerised video captioning agent** purpo
 
 <table>
 <tr>
-<td align="center">⚡ <b>Zero Config</b><br><sub>Pull & run — token baked in</sub></td>
+<td align="center">⚡ <b>Zero Config</b><br><sub>Pull & run — no setup needed</sub></td>
 <td align="center">🎯 <b>4 Styles</b><br><sub>formal · sarcastic · tech · witty</sub></td>
 <td align="center">🏎️ <b>~8 min</b><br><sub>12 clips on AMD GPU</sub></td>
 <td align="center">📦 <b>5.7 GB</b><br><sub>Under 10 GB limit</sub></td>
@@ -115,7 +115,6 @@ docker run --rm \
 |---|---|
 | **AMD GPU + ROCm** | `--device=/dev/kfd --device=/dev/dri` |
 | **Docker** | Image: **5.7 GB** compressed |
-| **HF Token** | Pre-configured in image |
 | **Input file** | `/input/tasks.json` (see format below) |
 | **Platform** | `linux/amd64` |
 
@@ -293,7 +292,7 @@ Relatable, accessible, light-hearted
 | **Decoding** | Temperature 0.7 · Top-p 0.95 · Top-k 40 |
 | **Max new tokens** | 256 |
 | **Quantization** | 8-bit / 4-bit (configurable in `config.py`) |
-| **Authentication** | HF_TOKEN baked into image |
+| **Auth** | Gated model — authenticated at runtime |
 
 <br>
 
@@ -360,7 +359,7 @@ spinxvision/
 | 📁 Missing input file | Descriptive error message, exit code 1 |
 | ⚠️ Partial task failure | Pipeline continues, per-task error logged |
 | 🎨 Missing/invalid style | Defaults to all 4 styles |
-| 🔑 Token expired | Runtime error with clear diagnostic |
+| 🔑 Auth failure | Runtime error with clear diagnostic |
 
 <br>
 
@@ -372,8 +371,8 @@ spinxvision/
 # Unit tests — no GPU required
 python3 -m unittest discover -s tests -v
 
-# Integration test — requires GPU + HF token
-HF_TOKEN=$HF_TOKEN python3 -m unittest \
+# Integration test — requires GPU
+python3 -m unittest \
   tests.test_integration.TestIntegration.test_caption_output_format -v
 ```
 
@@ -391,7 +390,7 @@ HF_TOKEN=$HF_TOKEN python3 -m unittest \
 | **Entry point** | `python /app/app.py` |
 | **Runtime user** | `root` (writes to mounted volumes) |
 | **Platform** | `linux/amd64` |
-| **HF Token** | Pre-configured — no env var needed |
+| **Auth** | Gated model — authenticated at runtime |
 
 <br>
 
@@ -408,7 +407,7 @@ HF_TOKEN=$HF_TOKEN python3 -m unittest \
 | **60s container cold start** | ✅ Model pre-loaded before task processing |
 | **No hardcoded answers** | ✅ All captions generated fresh per video |
 | **Error resilience** | ✅ Retries, fallbacks, partial failures handled |
-| **Zero-config for judges** | ✅ Pull and run — token baked in |
+| **Zero-config for judges** | ✅ Pull and run — no setup needed |
 
 <br>
 
