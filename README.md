@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ SPINXVISION
+# ⚡ QUADFRAME
 
 ### 🏆 AMD Hackathon 2026 — Track 2 · Top-Ranked Solution
 
@@ -36,7 +36,7 @@
 
 ## 📋 Overview
 
-SpinxVision is a **production-grade containerised video captioning agent** purpose-built for **AMD Instinct accelerators**. It downloads video clips, performs intelligent scene detection and key-frame extraction, and generates captions in **four distinct tones** using **Google's Gemma 4 12B** vision-language model — accelerated via **ROCm 6.4** with automatic CPU fallback.
+QuadFrame is a **production-grade containerised video captioning agent** purpose-built for **AMD Instinct accelerators**. It downloads video clips, performs intelligent scene detection and key-frame extraction, and generates captions in **four distinct tones** using **Google's Gemma 4 12B** vision-language model — accelerated via **ROCm 6.4** with automatic CPU fallback.
 
 ### 🔥 Key Highlights
 
@@ -95,13 +95,13 @@ EOF
 **Step 2:** Pull and run:
 
 ```bash
-docker pull arunvkofficial/spinxvision:latest
+docker pull arunvkofficial/quadframe:latest
 
 docker run --rm \
   --device=/dev/kfd --device=/dev/dri \
   -v $(pwd)/input:/input \
   -v $(pwd)/output:/output \
-  arunvkofficial/spinxvision:latest
+  arunvkofficial/quadframe:latest
 ```
 
 **Exit code 0** → results in `./output/results.json`
@@ -396,9 +396,9 @@ python3 -m unittest \
 
 ---
 
-## 📊 Why SpinxVision?
+## 📊 Why QuadFrame?
 
-| Requirement | SpinxVision |
+| Requirement | QuadFrame |
 |---|---|
 | **Under 10 GB compressed** | ✅ **5.7 GB** |
 | **Under 10 min runtime (12 clips)** | ✅ **~8 min on GPU** |
@@ -454,7 +454,7 @@ Google DeepMind
 [![ROCm](https://img.shields.io/badge/Accelerated-ROCm_6.4-8B5CF6?style=for-the-badge&logo=amd&logoColor=white&labelColor=1a1a1a)](https://rocm.docs.amd.com)
 
 <br>
-<sub>SpinxVision — AMD Hackathon 2026 · Track 2 · Top-Ranked Solution</sub>
+<sub>QuadFrame — AMD Hackathon 2026 · Track 2 · Top-Ranked Solution</sub>
 <br><br>
 
 </div>
