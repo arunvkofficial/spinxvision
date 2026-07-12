@@ -16,7 +16,7 @@
 <br>
 
 [![Build](https://img.shields.io/badge/Build-Passing-22C55E?style=flat-square&logo=githubactions&logoColor=white)]()
-[![Image](https://img.shields.io/badge/Image-6.2_GB-2496ED?style=flat-square&logo=docker&logoColor=white)]()
+[![Image](https://img.shields.io/badge/Image-5.7_GB-2496ED?style=flat-square&logo=docker&logoColor=white)]()
 [![Tests](https://img.shields.io/badge/Tests-18_Passing-22C55E?style=flat-square&logo=pytest&logoColor=white)]()
 [![Runtime](https://img.shields.io/badge/Runtime-%3C_10_min-F59E0B?style=flat-square&logo=clockify&logoColor=white)]()
 [![License](https://img.shields.io/badge/License-MIT-8B5CF6?style=flat-square)]()
@@ -62,8 +62,8 @@ docker run --rm \
 | Requirement | |
 |-------------|---|
 | AMD GPU with ROCm | `--device=/dev/kfd --device=/dev/dri` |
-| Docker | Image: **6.2 GB** compressed |
-| HuggingFace token | `-e HF_TOKEN=...` |
+| Docker | Image: **5.7 GB** compressed |
+| HuggingFace token | Pass via `-e HF_TOKEN=...` (gated model) |
 | Input file | `/input/tasks.json` (see below) |
 | Platform | `linux/amd64` |
 
@@ -182,8 +182,7 @@ Accessible, light, relatable
                                      ▼
                ╔══════════════════════════════════════╗
                ║        1. VIDEO INGESTION            ║
-               ║  FFmpeg · 3× retry · exponential     ║
-               ║  backoff (5s → 10s → 20s)            ║
+║  FFmpeg · 2× retry · 3s delay         ║
                ╚══════════════════════╤═══════════════╝
                                      │
                                      ▼
@@ -236,7 +235,7 @@ Accessible, light, relatable
 | **Precision** | `bfloat16` |
 | **Device strategy** | ROCm → CUDA → CPU (automatic) |
 | **Decoding** | Temperature 0.7 · Top-p 0.95 · Top-k 40 |
-| **Max tokens** | 512 |
+| **Max tokens** | 256 |
 | **Quantization** | 8-bit / 4-bit (configurable) |
 
 <br>
@@ -285,7 +284,7 @@ spinxvision/
 │   └── test_video.py
 │
 ├── .dockerignore           Excludes .env, .git, tests from build
-├── Dockerfile              ROCm production (6.2 GB)
+├── Dockerfile              ROCm production (5.7 GB)
 ├── Dockerfile.cpu          CPU development
 └── requirements.txt
 ```
@@ -298,7 +297,7 @@ spinxvision/
 
 | Scenario | Behaviour |
 |----------|-----------|
-| 🌐 Network failure | 3× retry with exponential backoff (5s → 10s → 20s) |
+| 🌐 Network failure | 2× retry with 3s delay |
 | 🗑️ Corrupted download | Fresh stream request on retry |
 | 🎬 Unsupported codec | Graceful fallback caption in output |
 | 💻 GPU unavailable | Automatic CPU delegation — zero downtime |
@@ -330,7 +329,7 @@ HF_TOKEN=$HF_TOKEN python3 -m unittest \
 | Attribute | Value |
 |-----------|-------|
 | **Base image** | `rocm/dev-ubuntu-24.04:6.4.3` |
-| **Compressed size** | **6.2 GB** (limit: 10 GB) |
+| **Compressed size** | **5.7 GB** (limit: 10 GB) |
 | **Entry point** | `python /app/app.py` |
 | **Runtime user** | `root` (writes to mounted volumes) |
 | **Platform** | `linux/amd64` |
@@ -365,7 +364,7 @@ Google DeepMind
 
 ### ✅ Production Ready
 
-6.2 GB · <10 min runtime
+5.7 GB · <10 min runtime
 
 18 tests passing
 
